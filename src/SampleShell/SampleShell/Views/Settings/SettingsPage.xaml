@@ -14,7 +14,6 @@
                         ItemsSource="{Binding Languages}"
                         SelectedIndexChanged="Picker_SelectedIndexChanged" />
                 </StackLayout>
-                <Label HorizontalOptions="CenterAndExpand" Text="Welcome to Xamarin.Forms!" />
 
                 <Button
                     Command="{Binding LogoutCommand}"

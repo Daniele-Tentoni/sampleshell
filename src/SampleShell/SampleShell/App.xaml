@@ -9,6 +9,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="TextPrimary">Black</Color>
+            <Color x:Key="DarkTextPrimary">White</Color>
             <!--  Buttons Style  -->
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White" />
@@ -34,7 +36,7 @@
                 <Setter Property="TextColor" Value="Black" />
             </Style>
             <Style TargetType="Picker">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TitleColor" Value="{AppThemeBinding Light={StaticResource TextPrimary}, Dark={StaticResource DarkTextPrimary}}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
