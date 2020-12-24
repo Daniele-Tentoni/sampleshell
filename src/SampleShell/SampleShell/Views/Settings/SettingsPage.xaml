@@ -8,11 +8,8 @@
         <ScrollView>
             <StackLayout Spacing="18">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Language" />
-                    <Picker
-                        Title="Language"
-                        ItemsSource="{Binding Languages}"
-                        SelectedIndexChanged="Picker_SelectedIndexChanged" />
+                    <Label HorizontalOptions="StartAndExpand" Text="Login with Fingerprint" />
+                    <CheckBox HorizontalOptions="End" IsChecked="{Binding FingerprintLogin}" />
                 </StackLayout>
 
                 <Button
