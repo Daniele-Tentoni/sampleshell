@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SampleShell.Views.Settings.SettingsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="18">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Language" />
+                    <Picker
+                        Title="Language"
+                        ItemsSource="{Binding Languages}"
+                        SelectedIndexChanged="Picker_SelectedIndexChanged" />
+                </StackLayout>
+                <Label HorizontalOptions="CenterAndExpand" Text="Welcome to Xamarin.Forms!" />
+
+                <Button
+                    Command="{Binding LogoutCommand}"
+                    HorizontalOptions="Center"
+                    Text="Logout" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
