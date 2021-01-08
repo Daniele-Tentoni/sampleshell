@@ -4,6 +4,7 @@
     using Plugin.Fingerprint;
     using Plugin.Fingerprint.Abstractions;
     using SampleShell.Resources.Strings;
+    using SampleShell.Resources.Strings.Login;
     using System.Threading.Tasks;
     using Xamarin.Essentials;
     using Xamarin.Forms;
@@ -33,17 +34,18 @@
                  * See MainActivity code.
                  */
                 var request = new AuthenticationRequestConfiguration(
-                    "Prove you have fingers!",
-                    "Because without it you can't have access");
+                    LoginStrings.FingerprintTitle,
+                    LoginStrings.FingerprintText);
                 var result = await CrossFingerprint.Current.AuthenticateAsync(request);
                 if (result.Authenticated)
                 {
                     /*
                      * Make here secret stuffs like change page.
                      */
+#if DEBUG
                     await Device.InvokeOnMainThreadAsync(async () =>
-                    await Application.Current.MainPage.DisplayAlert(
-                        "Authentication", "You are authenticated", "Ok"));
+                    await ShowAuthenticationResult(LoginStrings.AuthenticationSuccessText));
+#endif
                     await NextPage();
                 }
                 else
@@ -51,9 +53,10 @@
                     /*
                      * Say to user that is not allowed to make secret stuffs.
                      */
+#if DEBUG
                     await Device.InvokeOnMainThreadAsync(async () =>
-                    await Application.Current.MainPage.DisplayAlert(
-                        "Authentication", "You aren't authenticated", "Bad"));
+                    await ShowAuthenticationResult(LoginStrings.AuthenticationFailureText));
+#endif
                 }
             }
             finally
@@ -67,5 +70,11 @@
         /// </summary>
         /// <returns>Task to complete.</returns>
         private async Task NextPage() => await Shell.Current.GoToAsync("//about");
+
+        private async Task ShowAuthenticationResult(string text) =>
+            await Application.Current.MainPage.DisplayAlert(
+                        LoginStrings.AuthenticationTitle,
+                        LoginStrings.AuthenticationFailureText,
+                        LoginStrings.AuthenticationButton);
     }
 }

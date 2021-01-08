@@ -9,7 +9,7 @@
             <StackLayout Spacing="18">
                 <StackLayout Orientation="Horizontal">
                     <Label HorizontalOptions="StartAndExpand" Text="Login with Fingerprint" />
-                    <CheckBox HorizontalOptions="End" IsChecked="{Binding FingerprintLogin}" />
+                    <CheckBox HorizontalOptions="End" IsChecked="{Binding FingerprintLogin, Mode=TwoWay}" />
                 </StackLayout>
 
                 <Button
