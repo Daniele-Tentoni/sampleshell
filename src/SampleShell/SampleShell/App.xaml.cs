@@ -1,5 +1,6 @@
 ﻿namespace SampleShell
 {
+    using SampleShell.Services;
     using Xamarin.Forms;
 
     public partial class App : Application
@@ -9,6 +10,8 @@
         {
             InitializeComponent();
 
+            // Give as soon as possible a task service singleton.
+            DependencyService.Register<TaskService>();
             MainPage = new AppShell();
         }
 
