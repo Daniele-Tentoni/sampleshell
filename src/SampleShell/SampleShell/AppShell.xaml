@@ -3,10 +3,12 @@
     x:Class="SampleShell.AppShell"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:aboutStrings="clr-namespace:SampleShell.Resources.Strings.About"
     xmlns:browse="clr-namespace:SampleShell.Views.Browse"
     xmlns:helpers="clr-namespace:SampleShell.Helpers"
     xmlns:local="clr-namespace:SampleShell.Views"
     xmlns:login="clr-namespace:SampleShell.Views.Login"
+    xmlns:loginStrings="clr-namespace:SampleShell.Resources.Strings.Login"
     xmlns:settings="clr-namespace:SampleShell.Views.Settings"
     Title="SampleShell">
 
@@ -41,14 +43,15 @@
     <Shell.Items>
         <ShellContent
             ContentTemplate="{DataTemplate login:LoginPage}"
-            Route="login"
-            Shell.NavBarIsVisible="False" />
+            Route="{x:Static loginStrings:LoginStrings.PageRoute}"
+            Shell.NavBarIsVisible="False"
+            Title="{x:Static loginStrings:LoginStrings.PageTitle}"/>
     </Shell.Items>
 
     <TabBar>
         <Tab
-            Title="About"
-            Route="about"
+            Title="{x:Static aboutStrings:AboutStrings.PageTitle}"
+            Route="{x:Static aboutStrings:AboutStrings.PageRoute}"
             Shell.NavBarIsVisible="False">
             <Tab.Icon>
                 <FontImageSource FontFamily="fas" Glyph="{x:Static helpers:FontAwesomeIcons.Info}" />
