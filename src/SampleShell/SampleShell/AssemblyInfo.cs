@@ -1,5 +1,8 @@
+using System.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+[assembly: NeutralResourcesLanguage("en-US")]
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 [assembly: ExportFont("font_awesome_5_brand_regular_400.otf", Alias = "fab")]
