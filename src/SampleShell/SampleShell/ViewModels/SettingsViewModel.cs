@@ -11,14 +11,21 @@
     {
         public ICommand LogoutCommand => new Command(async () => await ExecuteLogout());
 
+        private bool _fingerprintLogin;
         public bool FingerprintLogin
         {
-            get => Preferences.Get(PreferencesStrings.FingerprintLogin, false);
+            get => _fingerprintLogin;
             set
             {
                 OnPropertyChanged(nameof(FingerprintLogin));
+                _fingerprintLogin = value;
                 Preferences.Set(PreferencesStrings.FingerprintLogin, value);
             }
+        }
+
+        public SettingsViewModel()
+        {
+            _fingerprintLogin = Preferences.Get(PreferencesStrings.FingerprintLogin, false);
         }
 
         private async Task ExecuteLogout() => await Shell.Current.GoToAsync("//login");

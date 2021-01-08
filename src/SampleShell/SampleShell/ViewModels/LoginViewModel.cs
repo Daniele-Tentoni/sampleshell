@@ -71,10 +71,15 @@
         /// <returns>Task to complete.</returns>
         private async Task NextPage() => await Shell.Current.GoToAsync("//about");
 
+        /// <summary>
+		/// Show the autheticated related text.
+		/// </summary>
+		/// <param name="text">Text to show in the popup.</param>
+		/// <returns>Task to complete.</returns>
         private async Task ShowAuthenticationResult(string text) =>
             await Application.Current.MainPage.DisplayAlert(
                         LoginStrings.AuthenticationTitle,
-                        LoginStrings.AuthenticationFailureText,
+                        text,
                         LoginStrings.AuthenticationButton);
     }
 }
