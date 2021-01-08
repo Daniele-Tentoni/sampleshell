@@ -31,6 +31,7 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Services\" />
+    <Folder Include="Resources\Strings\Login\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +42,9 @@
     </Compile>
     <Compile Update="Resources\Strings\TitleStrings.Designer.cs">
       <DependentUpon>TitleStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Strings\Login\LoginStrings.Designer.cs">
+      <DependentUpon>LoginStrings.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -61,6 +65,10 @@
     <EmbeddedResource Update="Resources\Strings\TitleStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>TitleStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Strings\Login\LoginStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoginStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
