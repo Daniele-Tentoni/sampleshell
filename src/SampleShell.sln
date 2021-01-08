@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleShell.Android", "Samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleShell.iOS", "SampleShell\SampleShell.iOS\SampleShell.iOS.csproj", "{33729959-2579-4827-914C-2BFFB9B406CD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleShell", "SampleShell\SampleShell\SampleShell.csproj", "{AD5B8DC4-B014-435D-977E-9527F667CAB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleShell", "SampleShell\SampleShell\SampleShell.csproj", "{AD5B8DC4-B014-435D-977E-9527F667CAB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F8655249-CFA9-4314-8C3C-0309CEEA0839}"
 	ProjectSection(SolutionItems) = preProject
