@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleShell.Views.AboutPage"
              xmlns:vm="clr-namespace:SampleShell.ViewModels"
-             Title="{Binding Title}">
-    
+             Visual="Material">
+
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>

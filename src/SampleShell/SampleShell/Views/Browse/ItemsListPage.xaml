@@ -2,7 +2,8 @@
 <ContentPage
     x:Class="SampleShell.Views.Browse.ItemsListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Visual="Material">
     <ContentPage.Content>
         <Grid>
             <CollectionView ItemsSource="{Binding SampleTasks}">
