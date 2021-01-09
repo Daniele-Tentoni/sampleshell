@@ -9,6 +9,7 @@
     xmlns:local="clr-namespace:SampleShell.Views"
     xmlns:login="clr-namespace:SampleShell.Views.Login"
     xmlns:loginStrings="clr-namespace:SampleShell.Resources.Strings.Login"
+    xmlns:browseStrings="clr-namespace:SampleShell.Resources.Strings.Browse"
     xmlns:settings="clr-namespace:SampleShell.Views.Settings"
     Title="SampleShell">
 
@@ -59,8 +60,8 @@
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
         <Tab
-            Title="List"
-            Route="items"
+            Title="{x:Static aboutStrings:AboutStrings.PageTitle}"
+            Route="{x:Static aboutStrings:AboutStrings.PageRoute}"
             Shell.NavBarIsVisible="False">
             <Tab.Icon>
                 <FontImageSource FontFamily="fas" Glyph="{x:Static helpers:FontAwesomeIcons.List}" />

@@ -33,6 +33,7 @@
     <Folder Include="Services\" />
     <Folder Include="Resources\Strings\Login\" />
     <Folder Include="Resources\Strings\About\" />
+    <Folder Include="Resources\Strings\Browse\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +50,9 @@
     </Compile>
     <Compile Update="Resources\Strings\About\AboutStrings.Designer.cs">
       <DependentUpon>AboutStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Strings\Browse\BrowseStrings.Designer.cs">
+      <DependentUpon>BrowseStrings.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -77,6 +81,10 @@
     <EmbeddedResource Update="Resources\Strings\About\AboutStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AboutStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Strings\Browse\BrowseStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrowseStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
