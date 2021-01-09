@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
 using UIKit;
 
 namespace SampleShell.iOS
@@ -24,6 +20,7 @@ namespace SampleShell.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            Xamarin.Forms.FormsMaterial.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
