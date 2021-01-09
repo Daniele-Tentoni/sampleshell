@@ -60,8 +60,8 @@
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
         <Tab
-            Title="{x:Static aboutStrings:AboutStrings.PageTitle}"
-            Route="{x:Static aboutStrings:AboutStrings.PageRoute}"
+            Title="{x:Static browseStrings:BrowseStrings.PageTitle}"
+            Route="{x:Static browseStrings:BrowseStrings.PageRoute}"
             Shell.NavBarIsVisible="False">
             <Tab.Icon>
                 <FontImageSource FontFamily="fas" Glyph="{x:Static helpers:FontAwesomeIcons.List}" />
