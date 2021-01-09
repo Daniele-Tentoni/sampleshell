@@ -1,36 +1,41 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmHelpers;
 using SampleShell.Models;
 using SampleShell.Services;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace SampleShell.ViewModels
 {
+    /// <summary>
+    /// ViewModel for ItemListPage.
+    /// </summary>
     public class ItemListViewModel : BaseViewModel
     {
-        private TaskService service = DependencyService.Get<TaskService>();
+        private readonly TaskService service;
 
-        private ObservableCollection<SampleTask> _sampletasks;
         public ObservableCollection<SampleTask> SampleTasks
         {
-            get => _sampletasks;
-            set => SetProperty(ref _sampletasks, value);
+            get => new ObservableCollection<SampleTask>(service.Tasks.Values);
         }
 
         public ItemListViewModel()
         {
-            _sampletasks = new ObservableCollection<SampleTask>();
+            service = DependencyService.Get<TaskService>();
             LoadSampleTasksCommand = new Command(async () => await ExecuteLoadSampleTasks());
+            CreateSampleTaskCommand = new Command(async () => await ExecuteCreateSampleTask());
         }
 
         public ICommand LoadSampleTasksCommand { get; }
 
+        public ICommand CreateSampleTaskCommand { get; }
+
+        /// <summary>
+        /// Execute the load tasks command. Use recursion to retry the loading.
+        /// </summary>
+        /// <returns>Load task completition.</returns>
         private async Task ExecuteLoadSampleTasks()
         {
             if (IsBusy) return;
@@ -46,12 +51,44 @@ namespace SampleShell.ViewModels
             }
         }
 
+        /// <summary>
+        /// Ask the user to input the task title and persist it.
+        /// </summary>
+        /// <returns>Persist task completition.</returns>
+        private async Task ExecuteCreateSampleTask()
+        {
+            if (IsBusy) return;
+            IsBusy = true;
+
+            try
+            {
+                var title = await Device.InvokeOnMainThreadAsync(async () =>
+                await Application.Current.MainPage.DisplayPromptAsync(
+                    "Tasks",
+                    "Prompt task title"));
+                if (!string.IsNullOrEmpty(title))
+                {
+                    var res = await service.CreateTask(title);
+                    // Notify view to update each observer of SampleTasks property.
+                    OnPropertyChanged(nameof(SampleTasks));
+                }
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        /// <summary>
+        /// Load persisted tasks to observable property.
+        /// </summary>
+        /// <returns>Load task completition.</returns>
         private async Task LoadTasks()
         {
             var tmp = service.Tasks.Values;
             if (tmp.Any())
             {
-                SampleTasks = new ObservableCollection<SampleTask>(tmp);
+                OnPropertyChanged(nameof(SampleTasks));
             }
             else
             {

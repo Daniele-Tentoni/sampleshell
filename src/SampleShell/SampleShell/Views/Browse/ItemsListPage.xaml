@@ -4,7 +4,11 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:SampleShell.Controls"
+    xmlns:helpers="clr-namespace:SampleShell.Helpers"
     Visual="Material">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding CreateSampleTaskCommand}" Text="{x:Static helpers:FontAwesomeIcons.Plus}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <!--
         Define more than one templates for tasks.
@@ -33,7 +37,16 @@
                                        UncompletedTask="{StaticResource UnCompletedTaskTemplate}" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid>
+        <Grid
+            RowDefinitions="Auto, *">
+            <StackLayout Grid.Row="0" Orientation="Horizontal">
+                <Label HorizontalOptions="StartAndExpand" Text="Tasks" FontSize="Header"/>
+                <Button Command="{Binding CreateSampleTaskCommand}" HorizontalOptions="End">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="fas" Glyph="{x:Static helpers:FontAwesomeIcons.Plus}" />
+                    </Button.ImageSource>
+                </Button>
+            </StackLayout>
             <!--
             To enable pull to refresh functionality, you have to add a Refresh View:
             https://docs.microsoft.com/it-it/xamarin/xamarin-forms/user-interface/collectionview/populate-data#pull-to-refresh
@@ -42,7 +55,7 @@
             You can also load incrementally with a threshold reached event:
             https://docs.microsoft.com/it-it/xamarin/xamarin-forms/user-interface/collectionview/populate-data#load-data-incrementally
             -->
-            <CollectionView ItemsSource="{Binding SampleTasks}"
+            <CollectionView Grid.Row="1" ItemsSource="{Binding SampleTasks}"
                             ItemTemplate="{StaticResource TaskSelector}">
             </CollectionView>
         </Grid>
