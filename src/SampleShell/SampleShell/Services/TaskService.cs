@@ -13,7 +13,6 @@ namespace SampleShell.Services
 
         public TaskService()
         {
-            Barrel.Create(Barrel.ApplicationId);
             _tasks = Barrel.Current.Get<Dictionary<string, SampleTask>>("tasks") ?? new Dictionary<string, SampleTask>();
         }
 
