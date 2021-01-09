@@ -1,14 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MonkeyCache.FileStore;
 using SampleShell.Models;
 
 namespace SampleShell.Services
 {
     public class TaskService
     {
-        private Dictionary<string, SampleTask> _tasks = new Dictionary<string, SampleTask>();
+        private Dictionary<string, SampleTask> _tasks;
         public Dictionary<string, SampleTask> Tasks => _tasks;
+
+        public TaskService()
+        {
+            Barrel.Create(Barrel.ApplicationId);
+            _tasks = Barrel.Current.Get<Dictionary<string, SampleTask>>("tasks") ?? new Dictionary<string, SampleTask>();
+        }
+
+        public Task<bool> Persist()
+        {
+            Barrel.Current.Add("tasks", _tasks, TimeSpan.FromDays(10));
+            return Task.FromResult(Barrel.Current.Exists("tasks"));
+        }
 
         /// <summary>
         /// Complete a specified task.
@@ -21,7 +34,7 @@ namespace SampleShell.Services
             var res = _tasks.TryGetValue(title, out tmp);
             if (!res) return await Task.FromResult(false);
             tmp.Status = Models.TaskStatus.Completed;
-            return await Task.FromResult(true);
+            return await Persist();
         }
 
         /// <summary>
@@ -40,7 +53,7 @@ namespace SampleShell.Services
                 Title = title
             };
             _tasks.Add(title, tmp);
-            return await Task.FromResult(true);
+            return await Persist();
         }
     }
 }

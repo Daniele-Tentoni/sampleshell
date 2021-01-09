@@ -1,5 +1,6 @@
 ﻿namespace SampleShell
 {
+    using MonkeyCache.FileStore;
     using SampleShell.Services;
     using Xamarin.Forms;
 
@@ -9,6 +10,8 @@
         public App()
         {
             InitializeComponent();
+            // Set Application Id before any other operation.
+            Barrel.ApplicationId = Xamarin.Essentials.AppInfo.PackageName;
 
             // Give as soon as possible a task service singleton.
             DependencyService.Register<TaskService>();
