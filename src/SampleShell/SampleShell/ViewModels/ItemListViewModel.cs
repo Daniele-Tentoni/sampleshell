@@ -24,9 +24,8 @@ namespace SampleShell.ViewModels
 
         public ItemListViewModel()
         {
-            Title = "Items";
-            LoadSampleTasksCommand = new Command(async () => await ExecuteLoadSampleTasks());
             _sampletasks = new ObservableCollection<SampleTask>();
+            LoadSampleTasksCommand = new Command(async () => await ExecuteLoadSampleTasks());
         }
 
         public ICommand LoadSampleTasksCommand { get; }
