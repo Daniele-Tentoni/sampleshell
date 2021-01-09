@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmHelpers;
@@ -37,21 +38,30 @@ namespace SampleShell.ViewModels
 
             try
             {
-                var tmp = service.Tasks.Values;
-                if (tmp.Any())
-                {
-                    SampleTasks = new ObservableCollection<SampleTask>(tmp);
-                }
-                else
-                {
-#if DEBUG
-                    await Device.InvokeOnMainThreadAsync(async () => await Application.Current.MainPage.DisplayAlert("Tasks", "No tasks", "Bad"));
-#endif
-                }
+                await LoadTasks();
             }
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        private async Task LoadTasks()
+        {
+            var tmp = service.Tasks.Values;
+            if (tmp.Any())
+            {
+                SampleTasks = new ObservableCollection<SampleTask>(tmp);
+            }
+            else
+            {
+#if DEBUG
+                // Advice and create the first default task.
+                var advice = Device.InvokeOnMainThreadAsync(async () => await Application.Current.MainPage.DisplayAlert("Tasks", "No tasks", "Bad"));
+                var creation = service.CreateTask("First Task");
+                await Task.WhenAll(advice, creation);
+                await LoadTasks();
+#endif
             }
         }
     }

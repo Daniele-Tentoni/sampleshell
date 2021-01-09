@@ -17,6 +17,7 @@ namespace SampleShell.Views.Browse
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            // Execute a loading if there are no elements.
             if (_viewModel?.SampleTasks?.Count == 0)
                 _viewModel.LoadSampleTasksCommand.Execute(null);
         }
