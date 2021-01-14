@@ -23,15 +23,15 @@
 	<key>MinimumOSVersion</key>
 	<string>9.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>SampleShell DEV</string>
+	<string>SampleShell</string>
 	<key>CFBundleIdentifier</key>
-	<string>it.danieletentoni.dev.SampleShell</string>
+	<string>it.danieletentoni.SampleShell</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
-	<string>SampleShell DEV</string>
+	<string>SampleShell</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSFaceIDUsageDescription</key>

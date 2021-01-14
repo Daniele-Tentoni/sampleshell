@@ -5,6 +5,47 @@
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug First|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug First</OutputPath>
+    <DefineConstants>DEBUG;APP_FIRST</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <IntermediateOutputPath>obj\Debug First</IntermediateOutputPath>
+    <NoWarn></NoWarn>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Second|AnyCPU' ">
+    <IntermediateOutputPath>obj\Debug Second</IntermediateOutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug Second</OutputPath>
+    <DefineConstants>DEBUG;APP_SECOND</DefineConstants>
+    <NoWarn></NoWarn>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release First|AnyCPU' ">
+    <IntermediateOutputPath>obj\Release First</IntermediateOutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release First</OutputPath>
+    <DefineConstants>RELEASE;APP_FIRST</DefineConstants>
+    <NoWarn></NoWarn>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release Second|AnyCPU' ">
+    <IntermediateOutputPath>obj\Release Second</IntermediateOutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release Second</OutputPath>
+    <DefineConstants>RELEASE;APP_SECOND</DefineConstants>
+    <NoWarn></NoWarn>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="Resources\Font\font_awesome_5_brand_regular_400.otf" />
     <None Remove="Resources\Font\font_awesome_5_regular_400.otf" />
@@ -55,6 +96,12 @@
     <Compile Update="Resources\Strings\Browse\BrowseStrings.Designer.cs">
       <DependentUpon>BrowseStrings.resx</DependentUpon>
     </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\Strings\TitleStrings %28copy%29.Designer.cs">
+      <DependentUpon>TitleStrings_first.resx</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\Strings\TitleStrings %28another copy%29.Designer.cs">
+      <DependentUpon>TitleStrings_second.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -86,6 +133,14 @@
     <EmbeddedResource Update="Resources\Strings\Browse\BrowseStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BrowseStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\Strings\TitleStrings %28copy%29.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TitleStrings_first.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\Strings\TitleStrings %28another copy%29.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TitleStrings_second.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

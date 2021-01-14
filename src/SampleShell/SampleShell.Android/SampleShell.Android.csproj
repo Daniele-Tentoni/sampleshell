@@ -13,10 +13,10 @@
         <AndroidApplication>True</AndroidApplication>
         <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
         <AndroidResgenClass>Resource</AndroidResgenClass>
-        <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+        <AndroidManifest>Properties\AndroidManifest_dev.xml</AndroidManifest>
         <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
         <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-        <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
         <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
         <AndroidUseAapt2>true</AndroidUseAapt2>
         <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
@@ -43,6 +43,68 @@
         <WarningLevel>4</WarningLevel>
         <AndroidManagedSymbols>true</AndroidManagedSymbols>
         <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug First|AnyCPU' ">
+        <DebugType>
+        </DebugType>
+        <!-- This is really important!!! -->
+        <DefineConstants>DEBUG;</DefineConstants>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug First</OutputPath>
+        <WarningLevel>4</WarningLevel>
+        <JavaMaximumHeapSize>
+        </JavaMaximumHeapSize>
+        <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
+        <AndroidUseAapt2>false</AndroidUseAapt2>
+        <AndroidManifest>Properties\AndroidManifest_first.xml</AndroidManifest>
+        <LangVersion>8.0</LangVersion>
+        <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+        <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86</AndroidSupportedAbis>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Second|AnyCPU' ">
+        <DebugType>
+        </DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug Second</OutputPath>
+        <WarningLevel>4</WarningLevel>
+        <JavaMaximumHeapSize>
+        </JavaMaximumHeapSize>
+        <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
+        <AndroidUseAapt2>false</AndroidUseAapt2>
+        <AndroidManifest>Properties\AndroidManifest_second.xml</AndroidManifest>
+        <LangVersion>8.0</LangVersion>
+        <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+        <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86</AndroidSupportedAbis>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release First|AnyCPU' ">
+        <DebugType>
+        </DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Release First</OutputPath>
+        <WarningLevel>4</WarningLevel>
+        <JavaMaximumHeapSize>
+        </JavaMaximumHeapSize>
+        <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
+        <AndroidUseAapt2>false</AndroidUseAapt2>
+        <AndroidManifest>Properties\AndroidManifest_first.xml</AndroidManifest>
+        <LangVersion>8.0</LangVersion>
+        <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+        <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86</AndroidSupportedAbis>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release Second|AnyCPU' ">
+        <DebugType>
+        </DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Release Second</OutputPath>
+        <WarningLevel>4</WarningLevel>
+        <JavaMaximumHeapSize>
+        </JavaMaximumHeapSize>
+        <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
+        <AndroidUseAapt2>false</AndroidUseAapt2>
+        <AndroidManifest>Properties\AndroidManifest_second.xml</AndroidManifest>
+        <LangVersion>8.0</LangVersion>
+        <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+        <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86</AndroidSupportedAbis>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="Mono.Android" />
@@ -71,7 +133,9 @@
     <ItemGroup>
         <None Include="Resources\AboutResources.txt" />
         <None Include="Assets\AboutAssets.txt" />
-        <None Include="Properties\AndroidManifest.xml" />
+        <None Include="Properties\AndroidManifest_dev.xml" />
+        <None Include="Properties\AndroidManifest_first.xml" />
+        <None Include="Properties\AndroidManifest_second.xml" />
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\layout\Tabbar.xml" />
