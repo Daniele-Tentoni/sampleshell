@@ -11,8 +11,7 @@
                     <Label Text="Language" />
                     <Picker
                         Title="Language"
-                        ItemsSource="{Binding Languages}"
-                        SelectedIndexChanged="Picker_SelectedIndexChanged" />
+                        ItemsSource="{Binding Languages}" />
                 </StackLayout>
 
                 <Button
