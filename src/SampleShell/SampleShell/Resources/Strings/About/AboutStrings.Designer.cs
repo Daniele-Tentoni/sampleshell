@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SampleShell.Resources.Strings {
+namespace SampleShell.Resources.Strings.About {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace SampleShell.Resources.Strings {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class PreferencesStrings {
+    public class AboutStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal PreferencesStrings() {
+        internal AboutStrings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SampleShell.Resources.Strings {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SampleShell.Resources.Strings.PreferencesStrings", typeof(PreferencesStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SampleShell.Resources.Strings.About.AboutStrings", typeof(AboutStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,20 @@ namespace SampleShell.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to fingerprint_login_enabled.
+        ///   Looks up a localized string similar to about.
         /// </summary>
-        public static string FingerprintLogin {
+        public static string PageRoute {
             get {
-                return ResourceManager.GetString("FingerprintLogin", resourceCulture);
+                return ResourceManager.GetString("PageRoute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string PageTitle {
+            get {
+                return ResourceManager.GetString("PageTitle", resourceCulture);
             }
         }
     }

@@ -59,6 +59,18 @@ namespace SampleShell.Resources.Strings.Login {
             }
         }
         
+        public static string PageTitle {
+            get {
+                return ResourceManager.GetString("PageTitle", resourceCulture);
+            }
+        }
+        
+        public static string PageRoute {
+            get {
+                return ResourceManager.GetString("PageRoute", resourceCulture);
+            }
+        }
+        
         public static string AuthenticationTitle {
             get {
                 return ResourceManager.GetString("AuthenticationTitle", resourceCulture);
