@@ -9,7 +9,10 @@
         <ScrollView>
             <StackLayout Spacing="18">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Language?" />
+                    <Label Text="Language" />
+                    <Picker
+                        Title="Language"
+                        ItemsSource="{Binding Languages}" />
                 </StackLayout>
 
                 <Button
